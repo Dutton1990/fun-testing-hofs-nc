@@ -2,8 +2,6 @@
 
 Your task is to write the functions below using full TDD.
 
-Once you have been introduced to testing with spies and mocks, have a go at using them in `after` and `before`.
-
 ## Challenges
 
 ### 1. capitalizer
