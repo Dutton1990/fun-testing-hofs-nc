@@ -6,18 +6,22 @@ Once you have been introduced to testing with spies and mocks, have a go at usin
 
 ## Challenges
 
-### 1. multiplyByX
+### 1. capitalizer
 
-`multiplyByX` should accept a number (`num1`) as an argument and return a function. That returned function should take a number (`num2`) as an argument and return the sum of `num1` and `num2`.
+`capitalizer` should accept a function as an argument and return a _new_ function.
+
+That returned function should take a string as an argument and invoke the originally passed function with that string _capitalised_.
+
+**Example 1**
 
 ```js
-const multiplyBy3 = multiplyByX(3);
-const output1 = multiplyBy3(2); // 6
-const output2 = multiplyBy3(4); // 12
+const createFilename = (file) => {
+  return `${file}.pdf`;
+};
 
-const multiplyBy5 = multiplyByX(5);
-const output3 = multiplyBy5(2); // 10
-const output4 = multiplyBy5(4); // 20
+const createCapitalizedFileName = capitalizer(createFilename);
+createCapitalizedFileName('super_secret_file'); // SUPER_SECRET_FILE.pdf
+createCapitalizedFileName('northcoders_curriculum'); // NORTHCODERS_CURRICULUM.pdf
 ```
 
 ### 2. after
