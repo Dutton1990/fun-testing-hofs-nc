@@ -25,13 +25,12 @@ createCapitalizedFileName('northcoders_curriculum'); // NORTHCODERS_CURRICULUM.p
 ### 2. after
 
 `after` should be able to accept two arguments (a number and a function) and it should return another function.
-​
+
 That returned function should invoke the _original_ passed `func` when invoked `n` or more times:
 
 - Before and including `n` number of calls is reached, it should return `undefined`
 - After being invoked `n` times it should behave _exactly_ as the original `func` would
 - It should be able to accept any number of arguments to account for the unknown amount of arguments `func` will need to accept
-  ​
 
 **Example 1**
 
@@ -39,7 +38,7 @@ That returned function should invoke the _original_ passed `func` when invoked `
 function doubleNum(num) {
   return num * 2;
 }
-​
+
 const doubleAfterTwoCalls = after(2, doubleNum);
 doubleAfterTwoCalls(5); // undefined
 doubleAfterTwoCalls(5); // undefined
@@ -53,7 +52,7 @@ doubleAfterTwoCalls(7); // 14
 function sumFourNumbers(a, b, c, d) {
   return a + b + c + d;
 }
-​
+
 const sumFourNumbersAfter3Calls = after(3, sumFourNumbers);
 sumFourNumbersAfter3Calls(1, 2, 3, 4); // undefined
 sumFourNumbersAfter3Calls(1, 2, 3, 4); // undefined
@@ -65,27 +64,25 @@ sumFourNumbersAfter3Calls(10, 32, 6, 12); // 60
 ### 3. before
 
 This function should essentially exhibit the _opposite_ behaviour to `after` but with a twist.
-​
+
 `before` should accept two arguments
 
 - `n` - a number
 - `func` - a function
-  ​
-  This function should return another function
-  ​
+
+- This function should return another function
+
 - That returned function should invoke the _original_ passed `func` when invoked _UP TO_ `n` times
   - Before `n` number of calls is reached, it should behave _exactly_ as the original `func` would
-  - **After being invoked `n` times it should always provide the same return value** - This return value should be the same provided by the _last_ invocation _before_ reaching `n` regardless of the arguments provided to subsequent calls
-    ​
-    Example
-    ​
-    ​
+  - **After being invoked `n` times it should always provide the same return value** - This return value should be the same provided by the _last_ invocation _before_ reaching `n` regardless of the arguments provided to subsequent calls.
+
+**Example:**
 
 ```js
 function capitaliseString(str) {
   return str.toUpperCase();
 }
-​
+
 const capitaliseBeforeThreeCalls = before(3, capitaliseString);
 capitaliseBeforeThreeCalls('hello'); // HELLO
 capitaliseBeforeThreeCalls('northcoders'); // NORTHCODERS
@@ -99,7 +96,7 @@ capitaliseBeforeThreeCalls('not northcoders please'); // NORTHCODERS
 function sum(a, b, c) {
   return a + b + c;
 }
-​
+
 const sumBeforeFourCalls = before(4, sum);
 sumBeforeFiveCalls(1, 2, 3); // 6
 sumBeforeFiveCalls(10, 11, 12); // 33
