@@ -119,3 +119,17 @@ sumBeforeFiveCalls(100, 200, 300); // 14
 sumBeforeFiveCalls(10); // 14
 sumBeforeFiveCalls(93, 4, 7.2); // 14
 ```
+
+## More Challenges
+
+If you have managed to implement the above using full TDD, bravo!
+
+Remember [lodash](https://lodash.com/docs/4.17.15)? Now it is time to try and implement some functions from another library... _Ramda_! Here are the [Docs](https://ramdajs.com/docs/) & the [NPM](https://www.npmjs.com/package/ramda) page.
+
+Ramda is another popular utility library in JavaScript. It strives for purity and is designed to facilitate the composition of functions in nice functional patterns.
+
+Reimplement the following Rambda functions using TDD:
+
+- once
+- nthArg
+- juxt
