@@ -8,18 +8,32 @@ Your task is to write the functions below using full TDD.
 
 `capitalizer` should accept a function as an argument and return a _new_ function.
 
-That returned function should take a string as an argument and invoke the originally passed function with that string _capitalised_.
+That returned function should take a string as an argument, _CAPITALISE_ the string, and invoke the originally passed function with the _capitalised_ string.
 
-**Example 1**
+**Examples**
 
 ```js
-const createFilename = (file) => {
+// Example 1
+const createPDF = (file) => {
   return `${file}.pdf`;
 };
 
-const createCapitalizedFileName = capitalizer(createFilename);
-createCapitalizedFileName('super_secret_file'); // SUPER_SECRET_FILE.pdf
-createCapitalizedFileName('northcoders_curriculum'); // NORTHCODERS_CURRICULUM.pdf
+createPDF('super_secret_file'); // 'super_secret_file.pdf'
+
+const createCapitalizedPDF = capitalizer(createPDF);
+createCapitalizedPDF('super_secret_file'); // 'SUPER_SECRET_FILE.pdf'
+createCapitalizedPDF('northcoders_curriculum'); // 'NORTHCODERS_CURRICULUM.pdf'
+
+// Example 2
+const sayHello = (person) => {
+  return `hello ${person}`;
+};
+
+sayHello('Paul'); // 'hello Paul'
+
+const shoutHello = capitalizer(sayHello);
+shoutHello('Paul'); // 'hello PAUL'
+shoutHello('Haz'); // 'hello HAZ'
 ```
 
 ### 2. after
@@ -32,9 +46,9 @@ That returned function should invoke the _original_ passed `func` when invoked `
 - After being invoked `n` times it should behave _exactly_ as the original `func` would
 - It should be able to accept any number of arguments to account for the unknown amount of arguments `func` will need to accept
 
-**Example 1**
-
 ```js
+// Example 1
+
 function doubleNum(num) {
   return num * 2;
 }
@@ -44,11 +58,9 @@ doubleAfterTwoCalls(5); // undefined
 doubleAfterTwoCalls(5); // undefined
 doubleAfterTwoCalls(5); // 10
 doubleAfterTwoCalls(7); // 14
-```
 
-**Example 2 - multiple arguments**
+// Example 2 - multiple arguments
 
-```js
 function sumFourNumbers(a, b, c, d) {
   return a + b + c + d;
 }
@@ -65,20 +77,22 @@ sumFourNumbersAfter3Calls(10, 32, 6, 12); // 60
 
 This function should essentially exhibit the _opposite_ behaviour to `after` but with a twist.
 
-`before` should accept two arguments
+- `before` should accept two arguments
 
-- `n` - a number
-- `func` - a function
+  - `n` - a number
+  - `func` - a function
 
 - This function should return another function
 
 - That returned function should invoke the _original_ passed `func` when invoked _UP TO_ `n` times
+
   - Before `n` number of calls is reached, it should behave _exactly_ as the original `func` would
   - **After being invoked `n` times it should always provide the same return value** - This return value should be the same provided by the _last_ invocation _before_ reaching `n` regardless of the arguments provided to subsequent calls.
 
-**Example:**
+**Examples:**
 
 ```js
+// Example 1
 function capitaliseString(str) {
   return str.toUpperCase();
 }
@@ -90,9 +104,8 @@ capitaliseBeforeThreeCalls('northcoders'); // NORTHCODERS
 capitaliseBeforeThreeCalls('hello'); // NORTHCODERS
 capitaliseBeforeThreeCalls(''); // NORTHCODERS
 capitaliseBeforeThreeCalls('not northcoders please'); // NORTHCODERS
-```
 
-```js
+// Example 2
 function sum(a, b, c) {
   return a + b + c;
 }
