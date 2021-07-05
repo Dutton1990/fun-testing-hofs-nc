@@ -41,7 +41,39 @@ describe('test capitalizer function', () => {
 })
 
 describe('test after function', () => {
-    test('takes a function and a number and returns undefined', () => {
-        expect(typeof after()).toEqual('undefined')
+    test('returns a function when invoked with nothing', () => {
+        expect(typeof after()).toEqual('function')
     });
+
+    test('takes the number 0 and a function and returns the function', () => {
+        const someFunc = (someStr) => {
+            return someStr
+        }
+        expect(typeof after(0, someFunc)).toEqual('function')
+    });
+
+    test('takes the number 0 and a function and when returned function is invoked gives the return value of the original function', () => {
+        const someFunc = (someStr) => {
+            return someStr
+        }
+        const returnedFunc = after(0, someFunc)
+        expect(returnedFunc('Hello')).toEqual('Hello')
+    });
+
+    test('takes the number 1 and a function and returned function returns undefined when invoked once', () => {
+        const someFunc = (someStr) => {
+            return someStr
+        }  
+        const returnedFunc = after(1, someFunc)
+        expect(returnedFunc('Poonam')).toEqual(undefined)
+    })
+
+    test('takes the number 1 and a function and invoked function returns value after more than one invocation', () => {
+        const someFunc = (someStr) => {
+            return someStr
+        }  
+        const returnedFunc = after(1, someFunc)
+        returnedFunc('Christian')
+        expect(returnedFunc('Christian')).toEqual('Christian') 
+    })
 });

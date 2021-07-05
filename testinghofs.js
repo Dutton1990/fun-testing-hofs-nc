@@ -5,6 +5,15 @@ const capitalizer = (func) => {
     return innerFunc;
 }
 
-const after = () => {}
+const after = (num, func) => {
+    let count = 0
+    const innerFunc =  (arg) => {
+        count++
+        if (count > num) {
+            return func(arg) }          
+        }
+    return innerFunc
+    
+}
 
 module.exports = {capitalizer, after}
