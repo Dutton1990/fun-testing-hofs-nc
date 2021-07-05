@@ -1,0 +1,23 @@
+{
+  "name": "fun-testing-hofs",
+  "version": "1.0.0",
+  "description": "Your task is to write the functions below using full TDD.",
+  "main": "testinghofs.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dutton1990/fun-testing-hofs-nc.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dutton1990/fun-testing-hofs-nc/issues"
+  },
+  "homepage": "https://github.com/Dutton1990/fun-testing-hofs-nc#readme",
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
+}
