@@ -5,6 +5,6 @@ const capitalizer = (func) => {
     return innerFunc;
 }
 
+const after = () => {}
 
-
-module.exports = capitalizer
+module.exports = {capitalizer, after}

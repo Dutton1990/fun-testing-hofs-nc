@@ -1,4 +1,4 @@
-const capitalizer = require('../testinghofs')
+const {capitalizer, after} = require('../testinghofs')
 
 
 describe('test capitalizer function', () => {
@@ -40,4 +40,8 @@ describe('test capitalizer function', () => {
     })
 })
 
-//// WORK PLZ
+describe('test after function', () => {
+    test('takes a function and a number and returns undefined', () => {
+        expect(typeof after()).toEqual('undefined')
+    });
+});
